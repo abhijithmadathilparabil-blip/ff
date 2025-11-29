@@ -30,14 +30,14 @@ jobs:
       - name: build React App
         run: CI=false npm run build
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASS }}
+      # - name: Login to DockerHub
+      #   uses: docker/login-action@v3
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASS }}
 
-      - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hello:latest .
+      # - name: Build Docker Image
+      #   run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hello:latest .
 
-      - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/hello:latest
+      # - name: Push Docker Image
+      #   run: docker push ${{ secrets.DOCKER_USERNAME }}/hello:latest
