@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }}
 
       - name: Build Docker Image
-        run: docker buildx build --load -t ${{ secrets.DOCKER_USER }}/hello:latest .
+        run: docker buildx build --load -t ${{ secrets.DOCKER_USER }}/eg:latest .
 
       - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USER }}/hello:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/eg:latest
