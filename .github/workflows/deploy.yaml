@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -24,10 +24,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Skip Tests (Demo)
-        run: echo "Skipping tests for demo"
+      - name: skip Tests for CI/CD Demo
+        run: echo "skipping tests for this class demo"
 
-      - name: Build React App
+      - name: build React App
         run: CI=false npm run build
 
       - name: Login to DockerHub
@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }}
 
       - name: Build Docker Image
-        run: docker buildx build --load -t ${{ secrets.DOCKER_USER }}/hello:latest .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/hello:latest .
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USER }}/hello:latest
